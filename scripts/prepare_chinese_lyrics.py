@@ -40,6 +40,10 @@ def main():
         simp_text = load_text(src_path)
         trad_text = converter.convert(simp_text)
 
+        if (not trad_singer) or (not trad_title) or (not trad_text):
+            print("Skip: {}".format(src_path))
+            continue
+
         tgt_dir = os.path.join(output_root, trad_singer)
         tgt_path = os.path.join(tgt_dir, "{}.txt".format(trad_title))
 
